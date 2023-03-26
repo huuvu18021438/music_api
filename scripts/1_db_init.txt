@@ -1,0 +1,1 @@
+pgcli 'postgres://huuvu18021438:RI4DftsnP5Vj@ep-curly-violet-380560.ap-southeast-1.aws.neon.tech/neondb'
