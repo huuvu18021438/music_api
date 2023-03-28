@@ -15,3 +15,4 @@ class SongController(private val songService: SongService) {
     @GetMapping("/{id}")
     fun findBy(@PathVariable id: Int) = songService.findBy(id)
 }
+
