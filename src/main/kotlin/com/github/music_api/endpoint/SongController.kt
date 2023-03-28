@@ -1,18 +1,28 @@
 package com.github.music_api.endpoint
 
+import com.github.music_api.model.Song
 import com.github.music_api.service.SongService
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
+import reactor.core.publisher.Mono
 
 @RestController
 @RequestMapping("/songs")
 class SongController(private val songService: SongService) {
-    @GetMapping("/")
-    fun getAllSongs() = songService.getAll()
+    @GetMapping
+    fun search() = songService.getAll()
 
     @GetMapping("/{id}")
-    fun findBy(@PathVariable id: Int) = songService.findBy(id)
+    fun find(@PathVariable id: Int) = songService.findBy(id)
+
+    @PostMapping
+    fun create(@RequestBody song: Song): Mono<Song> = TODO()
+
+    @PatchMapping("/{id}")
+    fun update(@PathVariable id: Int, @RequestBody song: Song): Mono<Song> = TODO()
+
+    @DeleteMapping("/{id}")
+    fun delete(@PathVariable id: Int): Mono<Song> = TODO()
 }
 
+// https://spring.io/guides/gs/rest-service/
+// https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design
