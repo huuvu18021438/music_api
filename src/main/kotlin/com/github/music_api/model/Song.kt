@@ -7,13 +7,14 @@ import org.springframework.data.relational.core.mapping.Table
 @Table("songs")
 data class Song(
     @Id
-    val id: Int,
+    val id: Int?,
     val name: String,
+// TODO enum as in db
     val genre: String,
     val author: String,
     val releaseYear: Int,
     val singer: String,
     val vote: Int,
     val lyric: String?,
-//        val audit: AuditMetadata
+// TODO val audit: AuditMetadata
 )
