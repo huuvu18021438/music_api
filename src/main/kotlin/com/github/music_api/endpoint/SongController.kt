@@ -14,14 +14,14 @@ class SongController(private val songService: SongService) {
     @GetMapping("/{id}")
     fun find(@PathVariable id: Int) = songService.findBy(id)
 
-    @PostMapping
-    fun create(@RequestBody song: Song): Mono<Song> = TODO()
+    @PostMapping("/add")
+    fun create(@RequestBody song: Song)  = songService.post(song)
 
     @PatchMapping("/{id}")
     fun update(@PathVariable id: Int, @RequestBody song: Song): Mono<Song> = TODO()
 
     @DeleteMapping("/{id}")
-    fun delete(@PathVariable id: Int): Mono<Song> = TODO()
+    fun delete(@PathVariable id: Int) = songService.delete(id)
 }
 
 // https://spring.io/guides/gs/rest-service/

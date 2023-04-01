@@ -3,18 +3,23 @@ package com.github.music_api.model
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
 
-//create genre enums
+enum class MusicGenre {
+    Pop, Rock, EDM, Country, Dance
+}
+
 @Table("songs")
 data class Song(
     @Id
-    val id: Int?,
+    var id: Int?,
     val name: String,
-// TODO enum as in db
-    val genre: String,
+    val genre: MusicGenre,
     val author: String,
     val releaseYear: Int,
     val singer: String,
     val vote: Int,
     val lyric: String?,
-// TODO val audit: AuditMetadata
+    val imageUri: String?,
+    val albumId: Int,
+    val fileId: Int,
+    val metaData: String,
 )

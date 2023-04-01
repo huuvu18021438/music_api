@@ -11,4 +11,10 @@ class SongService(private val songRepository: SongRepository) {
     fun getAll(): Flux<Song> = songRepository.findAll()
 
     fun findBy(id: Int): Mono<Song> = songRepository.findById(id)
+
+    fun post(song: Song): Mono<Song> {
+        return songRepository.save(song)
+    }
+
+    fun delete(id: Int) = songRepository.deleteById(id)
 }
