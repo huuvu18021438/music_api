@@ -6,7 +6,6 @@ import org.springframework.data.relational.core.mapping.Table
 enum class MusicGenre {
     Pop, Rock, EDM, Country, Dance
 }
-
 @Table("songs")
 data class Song(
     @Id
@@ -21,5 +20,5 @@ data class Song(
     val imageUri: String?,
     val albumId: Int,
     val fileId: Int,
-    val metaData: String,
+    val metaData: String?,
 )
