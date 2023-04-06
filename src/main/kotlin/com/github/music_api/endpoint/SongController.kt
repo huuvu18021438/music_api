@@ -14,8 +14,8 @@ class SongController(private val songService: SongService) {
     fun getSongs() = songService.getAll()
 
     @GetMapping("/search")
-    fun search(@RequestParam("query") query: String): ResponseEntity<Flux<Song>> {
-        return ResponseEntity.ok(songService.searchSongs(query))
+    fun search(@RequestParam("name") name: String): ResponseEntity<Flux<Song>> {
+        return ResponseEntity.ok(songService.searchSongs(name))
     }
 
     @GetMapping("/{id}")

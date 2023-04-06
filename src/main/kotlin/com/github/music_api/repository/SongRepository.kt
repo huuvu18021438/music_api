@@ -8,6 +8,6 @@ import reactor.core.publisher.Flux
 
 @Repository
 interface SongRepository : R2dbcRepository<Song, Int> {
-    @Query("SELECT * FROM songs WHERE name LIKE '%:query%'")
-    fun searchSongs(query: String): Flux<Song>
+    @Query("SELECT * FROM songs WHERE name LIKE CONCAT ('%',:name,'%') ")
+    fun searchSongs(name: String): Flux<Song>
 }

@@ -8,7 +8,7 @@ import reactor.core.publisher.Mono
 
 @Service
 class SongService(private val songRepository: SongRepository) {
-    fun searchSongs(query: String): Flux<Song> = songRepository.searchSongs(query)
+    fun searchSongs(name: String): Flux<Song> = songRepository.searchSongs(name)
 
     fun getAll(): Flux<Song> = songRepository.findAll()
 
