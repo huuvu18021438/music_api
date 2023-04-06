@@ -3,9 +3,11 @@ package com.github.music_api.model
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
 
+
 enum class MusicGenre {
     Pop, Rock, EDM, Country, Dance
 }
+
 @Table("songs")
 data class Song(
     @Id

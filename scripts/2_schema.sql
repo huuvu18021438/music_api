@@ -1,7 +1,5 @@
 CREATE TYPE music_genre AS ENUM ('Pop','Rock', 'EDM', 'Country', 'Dance');
-
-CREATE TYPE music_genre AS ENUM ('Pop','Rock', 'EDM', 'Country', 'Dance');
-
+CREATE CAST (varchar AS music_genre) WITH INOUT AS IMPLICIT;
 CREATE TABLE songs (
       id SERIAL PRIMARY KEY,
       name VARCHAR (255) NOT NULL,
