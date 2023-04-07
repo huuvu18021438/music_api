@@ -1,6 +1,8 @@
 package com.github.music_api.model
 
+import io.r2dbc.postgresql.codec.Json
 import org.springframework.data.annotation.Id
+import org.springframework.data.relational.core.mapping.Column
 import org.springframework.data.relational.core.mapping.Table
 
 
@@ -22,5 +24,5 @@ data class Song(
     val imageUri: String?,
     val albumId: Int,
     val fileId: Int,
-    val metaData: String?,
+    val metaData: Map<String, String>?,
 )
