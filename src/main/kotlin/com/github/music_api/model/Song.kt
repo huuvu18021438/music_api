@@ -21,6 +21,7 @@ data class Song(
     val singer: String,
     val vote: Int,
     val lyric: String?,
+    @Column("image")
     val imageUri: String?,
     val albumId: Int,
     val fileId: Int,

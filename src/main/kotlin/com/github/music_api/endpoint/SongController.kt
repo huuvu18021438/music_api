@@ -25,7 +25,7 @@ class SongController(private val songService: SongService) {
     fun create(@RequestBody song: Song): Mono<Song>  = songService.post(song)
 
     @PatchMapping("/{id}")
-    fun update(@PathVariable id: Int, @RequestBody song: Song): Mono<Song> = TODO()
+    fun update(@PathVariable id: Int, @RequestBody song: Song): Mono<Song> = songService.update(id, song)
 
     @DeleteMapping("/remove/{id}")
     fun delete(@PathVariable id: Int) = songService.delete(id)
