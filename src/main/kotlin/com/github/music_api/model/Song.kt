@@ -25,5 +25,5 @@ data class Song(
     val imageUri: String?,
     val albumId: Int,
     val fileId: Int,
-    val metaData: Map<String, String>?,
+    val metaData: Map<String, String>,
 )
