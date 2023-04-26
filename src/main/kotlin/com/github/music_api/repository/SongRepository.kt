@@ -10,4 +10,6 @@ import reactor.core.publisher.Flux
 interface SongRepository : R2dbcRepository<Song, Int> {
     @Query("SELECT * FROM songs WHERE name LIKE CONCAT ('%',:name,'%') ")
     fun searchSongs(name: String): Flux<Song>
+    @Query("SELECT * FROM songs WHERE id IN (SELECT song_id FROM songs_playlists WHERE playlist_id = :id)")
+    fun findSongsOfPlaylistId(id: Int): Flux<Song>
 }

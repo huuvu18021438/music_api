@@ -11,14 +11,16 @@ import java.util.*
 class SongService(private val songRepository: SongRepository) {
     fun searchSongs(name: String): Flux<Song> = songRepository.searchSongs(name)
 
+//    @PreAuthorize("authenticated")
     fun getAll(): Flux<Song> = songRepository.findAll()
 
+//    @PreAuthorize("hasRole('ADMIN')")
     fun findBy(id: Int): Mono<Song> = songRepository.findById(id)
 
-    fun post(song: Song): Mono<Song> {
-        return songRepository.save(song)
-    }
+//    @PreAuthorize("hasRole('ADMIN')")
+    fun post(song: Song): Mono<Song> = songRepository.save(song)
 
+//    @PreAuthorize("hasRole('ADMIN')")
     fun update(id: Int, song: Song): Mono<Song> {
         return songRepository.findById(id).map { s: Song -> Optional.of(s) }.defaultIfEmpty(Optional.empty())
                 .flatMap { optionalSong ->
@@ -30,5 +32,6 @@ class SongService(private val songRepository: SongRepository) {
                 }
     }
 
+//    @PreAuthorize("hasRole('ADMIN')")
     fun delete(id: Int) = songRepository.deleteById(id)
 }

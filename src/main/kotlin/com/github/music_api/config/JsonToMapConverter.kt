@@ -11,7 +11,7 @@ import java.io.IOException
 class JsonToMapConverter(private val objectMapper: ObjectMapper) : Converter<Json, Map<String, Any>> {
     override fun convert(json: Json): Map<String, Any> {
         try {
-            return objectMapper.readValue(json.asString(), object: TypeReference<Map<String, String>>(){})
+            return objectMapper.readValue(json.asString(), object: TypeReference<Map<String, Any>>(){})
         } catch (e: IOException) {
             println("Problem while parsing JSON: {}")
         }

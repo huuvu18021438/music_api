@@ -1,7 +1,9 @@
 package com.github.music_api.model
 
-import io.r2dbc.postgresql.codec.Json
+import lombok.Builder
+import lombok.Value
 import org.springframework.data.annotation.Id
+import org.springframework.data.annotation.Immutable
 import org.springframework.data.relational.core.mapping.Column
 import org.springframework.data.relational.core.mapping.Table
 
@@ -10,7 +12,7 @@ enum class MusicGenre {
     Pop, Rock, EDM, Country, Dance
 }
 
-@Table("songs")
+@Table(name = "songs")
 data class Song(
     @Id
     var id: Int?,
@@ -25,5 +27,5 @@ data class Song(
     val imageUri: String?,
     val albumId: Int,
     val fileId: Int,
-    val metaData: Map<String, String>,
+    val metaData: Map<String, Any>,
 )
